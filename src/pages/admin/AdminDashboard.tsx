@@ -29,11 +29,9 @@ export default function AdminDashboard() {
             <span>Centre de Commandement</span>
           </button>
 
-          {/* Autres sections à ajouter */}
           <button
             onClick={() => setActiveSection('moderation')}
-            className={`sidebar-link ${activeSection === 'moderation' ? 'active' : ''} opacity-50 cursor-not-allowed`}
-            disabled
+            className={`sidebar-link ${activeSection === 'moderation' ? 'active' : ''}`}
           >
             <span>⚖️</span>
             <span>Modération</span>
@@ -41,8 +39,7 @@ export default function AdminDashboard() {
 
           <button
             onClick={() => setActiveSection('analytics')}
-            className={`sidebar-link ${activeSection === 'analytics' ? 'active' : ''} opacity-50 cursor-not-allowed`}
-            disabled
+            className={`sidebar-link ${activeSection === 'analytics' ? 'active' : ''}`}
           >
             <span>📊</span>
             <span>Analytics</span>
