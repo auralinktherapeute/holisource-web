@@ -17,7 +17,7 @@ function App() {
         <Route path="/therapeutes" element={<TherapistListPage />} />
         <Route path="/therapeute/:slug" element={<TherapistProfilePage />} />
         <Route path="/devenir-therapeute" element={<RegisterPage />} />
-        <Route path="/admin" element={<TestPage />} />
+        <Route path="/admin" element={<div style={{padding: '2rem', color: 'white', background: '#1a0a2e'}}>✅ ADMIN FONCTIONNE</div>} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
