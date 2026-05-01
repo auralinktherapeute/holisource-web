@@ -4,7 +4,7 @@
 
 [context.production.environment]
   VITE_SUPABASE_URL = "https://dqmujlqxpmcwscztrrdt.supabase.co"
-  VITE_SUPABASE_ANON_KEY = ""
+  VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRxbXVqbHF4cG1jd3NjenRycmR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0MjM5NzgsImV4cCI6MjA4NDk5OTk3OH0.8RbSZphL-Ee78Ruo1_QE4WJ0tU4tkUl9w6Mk6uq7NKg"
 
 [[redirects]]
   from = "/*"
