@@ -1,0 +1,29 @@
+.profile-page {
+  background: radial-gradient(ellipse at top, #3d2460 0%, #1a0a2e 100%);
+  min-height: 100vh;
+  color: #ffffff;
+  padding: 4rem 2rem;
+}
+
+.profile-hero {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.profile-hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.profile-hero p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.slug {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  font-family: monospace;
+  color: rgba(168, 85, 247, 0.7);
+}

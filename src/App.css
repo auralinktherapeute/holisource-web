@@ -1,0 +1,47 @@
+/* Holisource Global Styles */
+
+:root {
+  --holi-bg-primary: #1a0a2e;
+  --holi-bg-secondary: #2d1b4e;
+  --holi-bg-tertiary: #3d2460;
+  --holi-accent: #7c3aed;
+  --holi-accent-light: #a855f7;
+  --holi-accent-cyan: #22d3ee;
+  --holi-text-primary: #ffffff;
+  --holi-text-secondary: rgba(255, 255, 255, 0.7);
+  --holi-text-tertiary: rgba(255, 255, 255, 0.45);
+  --holi-border: rgba(168, 85, 247, 0.25);
+  --holi-border-active: rgba(168, 85, 247, 0.5);
+  --holi-gradient-text: linear-gradient(135deg, #a855f7, #22d3ee);
+  --holi-gradient-btn: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  --holi-gradient-bg: radial-gradient(ellipse at top, #3d2460 0%, #1a0a2e 60%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
