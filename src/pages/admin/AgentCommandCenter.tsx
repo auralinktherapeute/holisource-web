@@ -67,6 +67,7 @@ export default function AgentCommandCenter() {
   const [recentLogs, setRecentLogs] = useState<AgentLog[]>([]);
   const [lastUpdate, setLastUpdate] = useState<string>(new Date().toLocaleTimeString('fr-FR'));
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const AGENTS = [
     { name: 'agent-seo-scheduler', icon: '🎯', color: 'from-blue-500 to-cyan-500' },
@@ -94,8 +95,11 @@ export default function AgentCommandCenter() {
       setRecentLogs(logsRes.data || []);
       setLastUpdate(new Date().toLocaleTimeString('fr-FR'));
       setLoading(false);
+      setError(null);
     } catch (error) {
-      console.error('Erreur:', error);
+      console.error('Erreur Supabase:', error);
+      setError(error instanceof Error ? error.message : 'Erreur inconnue');
+      setLoading(false);
     }
   };
 
@@ -394,6 +398,11 @@ export default function AgentCommandCenter() {
       <div className="max-w-7xl mx-auto px-6 py-8">
         {loading ? (
           <div className="text-center py-12 text-slate-400">Chargement...</div>
+        ) : error ? (
+          <div className="text-center py-12 text-red-400">
+            <div className="text-2xl mb-4">⚠️</div>
+            <p className="text-lg">{error}</p>
+          </div>
         ) : (
           <>
             {activeTab === 'overview' && renderOverview()}
