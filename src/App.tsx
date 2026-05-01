@@ -4,6 +4,7 @@ import TherapistListPage from './pages/TherapistListPage'
 import TherapistProfilePage from './pages/TherapistProfilePage'
 import RegisterPage from './pages/RegisterPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
+import TestPage from './pages/admin/TestPage'
 import Navigation from './components/Navigation'
 import './App.css'
 
@@ -16,7 +17,7 @@ function App() {
         <Route path="/therapeutes" element={<TherapistListPage />} />
         <Route path="/therapeute/:slug" element={<TherapistProfilePage />} />
         <Route path="/devenir-therapeute" element={<RegisterPage />} />
-        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin" element={<TestPage />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
