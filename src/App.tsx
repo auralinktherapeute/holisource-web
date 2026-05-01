@@ -4,7 +4,6 @@ import TherapistListPage from './pages/TherapistListPage'
 import TherapistProfilePage from './pages/TherapistProfilePage'
 import RegisterPage from './pages/RegisterPage'
 import AdminDashboard from './pages/admin/AdminDashboard'
-import TestPage from './pages/admin/TestPage'
 import Navigation from './components/Navigation'
 import './App.css'
 
