@@ -59,6 +59,12 @@
   box-shadow: 0 0 24px rgba(139, 92, 246, 0.4);
 }
 
+.premium-btn {
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
 .admin-link {
   font-size: 1.5rem;
   opacity: 0.8;
