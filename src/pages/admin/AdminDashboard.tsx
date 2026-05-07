@@ -5,9 +5,10 @@
 
 import { useState } from 'react';
 import AgentCommandCenter from './AgentCommandCenter';
+import ApiSettingsPage from './ApiSettingsPage';
 import './AdminDashboard.css';
 
-type AdminSection = 'agents' | 'moderation' | 'analytics';
+type AdminSection = 'agents' | 'moderation' | 'analytics' | 'api-settings';
 
 export default function AdminDashboard() {
   const [activeSection, setActiveSection] = useState<AdminSection>('agents');
@@ -44,6 +45,14 @@ export default function AdminDashboard() {
             <span>📊</span>
             <span>Analytics</span>
           </button>
+
+          <button
+            onClick={() => setActiveSection('api-settings')}
+            className={`sidebar-link ${activeSection === 'api-settings' ? 'active' : ''}`}
+          >
+            <span>⚙️</span>
+            <span>API & Crédits</span>
+          </button>
         </nav>
 
         <div className="sidebar-footer text-xs text-slate-400">
@@ -64,6 +73,7 @@ export default function AdminDashboard() {
             <p className="text-lg">À venir — Section Analytics</p>
           </div>
         )}
+        {activeSection === 'api-settings' && <ApiSettingsPage />}
       </main>
     </div>
   );
