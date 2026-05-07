@@ -15,7 +15,6 @@ interface ApiStatus {
 export default function ApiSettingsPage() {
   const [apiStatus, setApiStatus] = useState<ApiStatus | null>(null)
   const [loading, setLoading] = useState(false)
-  const [showApiKey, setShowApiKey] = useState(false)
 
   useEffect(() => {
     checkApiStatus()
