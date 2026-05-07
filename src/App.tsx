@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation onOpenUpgrade={() => setShowUpgradeModal(true)} />
+        <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/therapeutes" element={<TherapistListPage />} />
