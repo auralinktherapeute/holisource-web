@@ -9,11 +9,10 @@ import Navigation from './components/Navigation'
 import { UpgradeModal } from './components/UpgradeModal'
 import './App.css'
 
-function App() {
+function AppInner() {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false)
   const location = useLocation()
 
-  // Check if upgrade=success or upgrade=canceled in URL
   if (location.search.includes('upgrade=success')) {
     console.log('✅ Paiement réussi!')
   } else if (location.search.includes('upgrade=canceled')) {
@@ -22,18 +21,24 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navigation />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/therapeutes" element={<TherapistListPage />} />
-          <Route path="/therapeute/:slug" element={<TherapistProfilePage />} />
-          <Route path="/devenir-therapeute" element={<RegisterPage />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-        </Routes>
-      </Router>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/therapeutes" element={<TherapistListPage />} />
+        <Route path="/therapeute/:slug" element={<TherapistProfilePage />} />
+        <Route path="/devenir-therapeute" element={<RegisterPage />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+      </Routes>
       <UpgradeModal isOpen={showUpgradeModal} onClose={() => setShowUpgradeModal(false)} />
     </>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <AppInner />
+    </Router>
   )
 }
 

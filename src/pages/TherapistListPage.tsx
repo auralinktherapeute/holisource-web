@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { useSearchParams } from 'react-router-dom'
 import { supabase, type Therapeute } from '../lib/supabase'
+import { ContentSEO } from '../components/ContentSEO'
 import './TherapistListPage.css'
 
 export default function TherapistListPage() {
@@ -9,9 +11,18 @@ export default function TherapistListPage() {
   const [error, setError] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
 
+  const [searchParams] = useSearchParams()
+  const specialiteParam = searchParams.get('specialite') || ''
+  const villeParam = searchParams.get('ville') || ''
+
   useEffect(() => {
     fetchTherapistes()
   }, [])
+
+  useEffect(() => {
+    if (specialiteParam) setSearchTerm(specialiteParam)
+    else if (villeParam) setSearchTerm(villeParam)
+  }, [specialiteParam, villeParam])
 
   async function fetchTherapistes() {
     try {
@@ -32,6 +43,54 @@ export default function TherapistListPage() {
     }
   }
 
+  function getSeoData() {
+    const BASE = 'https://www.holisource.com'
+
+    if (specialiteParam && villeParam) {
+      const spec = specialiteParam.charAt(0).toUpperCase() + specialiteParam.slice(1)
+      const ville = villeParam.charAt(0).toUpperCase() + villeParam.slice(1)
+      return {
+        title: `${spec} à ${ville} — Thérapeutes holistiques | Holisource`,
+        description: `Trouvez un(e) praticien(ne) en ${spec.toLowerCase()} à ${ville}. Thérapeutes vérifiés, prise de RDV en ligne. Holisource, l'annuaire holistique de référence en Alsace.`,
+        canonical: `${BASE}/therapeutes?specialite=${encodeURIComponent(specialiteParam)}&ville=${encodeURIComponent(villeParam)}`,
+        schemaType: 'landing',
+        aiSummary: `Cette page liste les thérapeutes spécialisés en ${spec.toLowerCase()} disponibles à ${ville} en Alsace. Tous les praticiens sont vérifiés par Holisource. Prise de rendez-vous en ligne disponible.`,
+      }
+    }
+
+    if (specialiteParam) {
+      const spec = specialiteParam.charAt(0).toUpperCase() + specialiteParam.slice(1)
+      return {
+        title: `${spec} en Alsace — Thérapeutes holistiques | Holisource`,
+        description: `Trouvez les meilleurs praticiens en ${spec.toLowerCase()} en Alsace (Strasbourg, Colmar, Mulhouse). Thérapeutes vérifiés, réservation en ligne sur Holisource.`,
+        canonical: `${BASE}/therapeutes?specialite=${encodeURIComponent(specialiteParam)}`,
+        schemaType: 'landing',
+        aiSummary: `Cette page recense tous les thérapeutes spécialisés en ${spec.toLowerCase()} en Alsace. Holisource vérifie chaque praticien avant publication. La réservation de rendez-vous se fait directement en ligne.`,
+      }
+    }
+
+    if (villeParam) {
+      const ville = villeParam.charAt(0).toUpperCase() + villeParam.slice(1)
+      return {
+        title: `Thérapeutes holistiques à ${ville} — Holisource Alsace`,
+        description: `Trouvez un thérapeute holistique à ${ville} : sophrologie, naturopathie, hypnothérapie, reiki et plus. Praticiens vérifiés, prise de RDV en ligne sur Holisource.`,
+        canonical: `${BASE}/therapeutes?ville=${encodeURIComponent(villeParam)}`,
+        schemaType: 'landing',
+        aiSummary: `Cette page liste tous les thérapeutes holistiques disponibles à ${ville} (Alsace). Toutes les spécialités sont représentées : sophrologie, naturopathie, hypnothérapie, reiki, magnétisme et bien d'autres. Réservation en ligne disponible.`,
+      }
+    }
+
+    return {
+      title: 'Tous les thérapeutes holistiques en Alsace | Holisource',
+      description: 'Annuaire complet des thérapeutes holistiques en Alsace : sophrologues, naturopathes, hypnothérapeutes, praticiens Reiki, magnétiseurs... Praticiens vérifiés à Strasbourg, Colmar, Mulhouse.',
+      canonical: `${BASE}/therapeutes`,
+      schemaType: 'directory',
+      aiSummary: 'Holisource répertorie tous les thérapeutes holistiques approuvés en Alsace (Bas-Rhin 67 et Haut-Rhin 68). Les spécialités disponibles incluent : sophrologie, naturopathie, hypnothérapie, reiki, magnétisme, ostéopathie holistique, acupuncture, réflexologie, aromathérapie, EFT, coaching holistique, lithothérapie, kinésiologie, shiatsu, méditation, yoga thérapeutique et chromothérapie. Les thérapeutes exercent à Strasbourg, Colmar, Mulhouse, Haguenau, Sélestat et dans toute l\'Alsace.',
+    }
+  }
+
+  const seo = getSeoData()
+
   const filtered = therapeutes.filter(t =>
     t.prenom.toLowerCase().includes(searchTerm.toLowerCase()) ||
     t.nom.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -41,6 +100,25 @@ export default function TherapistListPage() {
 
   return (
     <div className="therapist-list-page">
+      <ContentSEO
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "@id": seo.canonical,
+          "name": seo.title,
+          "description": seo.description,
+          "url": seo.canonical,
+          "isPartOf": { "@id": "https://www.holisource.com/#website" },
+          "about": {
+            "@type": "Thing",
+            "name": "Thérapies holistiques Alsace"
+          }
+        }}
+        aiSummary={seo.aiSummary}
+      />
       <section className="list-header">
         <h1>Nos Thérapeutes</h1>
         <p>Trouvez le praticien holistique qui vous convient</p>
