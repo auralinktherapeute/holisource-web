@@ -10,16 +10,27 @@ export type Therapeute = {
   prenom: string
   nom: string
   email: string
-  telephone: string
+  telephone?: string
   photo_url?: string
   specialite: string
+  specialites?: string[]
   ville: string
-  code_postal: string
-  description: string
+  code_postal?: string
+  adresse?: string
+  departement?: string
+  description?: string
+  approche?: string
   tarif_min?: number
   tarif_max?: number
-  modalite: 'presentiel' | 'distanciel' | 'les_deux'
+  modalite?: 'presentiel' | 'distanciel' | 'les_deux'
+  site_web?: string
   calendly_url?: string
   slug: string
-  statut: 'approved'
+  statut: 'approved' | 'pending' | 'rejected'
+  subscription_plan?: 'basic' | 'premium' | 'premium_plus'
+  titre_seo?: string
+  meta_description?: string
+  mots_cles?: string[]
+  score_moderation?: number
+  created_at?: string
 }

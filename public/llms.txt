@@ -1,0 +1,48 @@
+# Holisource — Annuaire de thérapeutes holistiques en Alsace
+
+> Holisource est la plateforme de référence pour trouver un thérapeute holistique en Alsace (Bas-Rhin 67, Haut-Rhin 68), France. Mise en relation patients ↔ praticiens vérifiés. Réservation en ligne.
+
+## Site
+
+- Accueil: https://www.holisource.com
+- Annuaire complet: https://www.holisource.com/therapeutes
+- Inscription thérapeute: https://www.holisource.com/devenir-therapeute
+- Sitemap: https://www.holisource.com/sitemap.xml
+
+## Zone géographique couverte
+
+Alsace, France :
+- Strasbourg (67000–67100)
+- Colmar (68000)
+- Mulhouse (68100)
+- Haguenau (67500)
+- Sélestat (67600)
+- Et toute l'Alsace (Bas-Rhin 67 + Haut-Rhin 68)
+
+## Spécialités disponibles
+
+Bien-être mental : Coaching holistique, EFT, Hypnose, Méditation, Sophrologie
+Corps et Mouvement : Ostéopathie holistique, Yoga thérapeutique
+Énergie : Chromothérapie, Géobiologie, Kinésiologie holistique, Lithothérapie, Magnétisme, Reiki
+Massage : Massage bien-être, Réflexologie, Shiatsu
+Médecine traditionnelle : Acupuncture, Ayurveda
+Santé naturelle : Aromathérapie, Naturopathie
+
+## À propos des profils
+
+Chaque fiche thérapeute contient :
+- Nom, prénom, spécialité principale
+- Description et approche thérapeutique
+- Ville, modalité (présentiel / distanciel / les deux)
+- Tarifs (min / max)
+- Lien de prise de rendez-vous (Calendly)
+- Statut vérifié par Holisource
+
+## Modération
+
+Tous les profils publiés ont été vérifiés et approuvés par l'équipe Holisource avant publication.
+
+## Contact
+
+Site : https://www.holisource.com
+Email : contact@holisource.com

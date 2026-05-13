@@ -45,3 +45,45 @@ a {
     font-size: 14px;
   }
 }
+
+/* ── Boutons globaux ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.4);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.8);
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.btn-secondary:hover {
+  background: rgba(168, 85, 247, 0.15);
+  color: #fff;
+}
+
+.btn-large {
+  padding: 14px 32px;
+  font-size: 17px;
+}
